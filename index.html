@@ -86,12 +86,14 @@ function intro(){
  <label class="f" for="g">Jenis kelamin</label><select id="g"><option value="">Pilih</option><option>Laki-laki</option><option>Perempuan</option></select>
  <label class="f" for="e">Email</label><input id="e" type="email" autocomplete="email">
  <label class="f" for="w">Nomor WhatsApp</label><input id="w" type="tel" autocomplete="tel">
+ <label class="f" for="d">Pendidikan terakhir</label><select id="d"><option value="">Pilih</option><option>SMP</option><option>SMA/SMK/MA</option><option>D1</option><option>D2</option><option>D3</option><option>D4</option><option>S1</option><option>S2</option><option>S3</option></select>
+ <label class="f" for="j">Jurusan / program studi</label><input id="j" type="text" placeholder="Contoh: Akuntansi (isi tanda - jika tidak ada)">
  <label class="f" for="p">Posisi yang dilamar</label><input id="p" type="text">
  <label class="ck"><input id="ok" type="checkbox"><span>Saya telah membaca aturan di atas dan bersedia mengerjakan assessment ini sendiri dengan jujur, tanpa mencontek, kalkulator, atau media lainnya.</span></label>
  <p class="err" id="er"></p><button onclick="begin()">Mulai assessment</button></div>`);
 }
 function begin(){
- const c = {nama:$("#n").value.trim(), usia:$("#u").value.trim(), jenis_kelamin:$("#g").value, email:$("#e").value.trim(), whatsapp:$("#w").value.trim(), posisi:$("#p").value.trim()};
+ const c = {nama:$("#n").value.trim(), usia:$("#u").value.trim(), jenis_kelamin:$("#g").value, email:$("#e").value.trim(), whatsapp:$("#w").value.trim(), pendidikan:$("#d").value, jurusan:$("#j").value.trim(), posisi:$("#p").value.trim()};
  if(Object.values(c).some(v=>!v)) return $("#er").textContent="Lengkapi semua kolom sebelum memulai.";
  if(!$("#ok").checked) return $("#er").textContent="Centang pernyataan kesediaan mengerjakan dengan jujur dan mandiri.";
  if(!/^\S+@\S+\.\S+$/.test(c.email)) return $("#er").textContent="Format email belum benar.";
